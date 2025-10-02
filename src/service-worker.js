@@ -1,31 +1,27 @@
 /* eslint-disable no-restricted-globals */
 
-// --- CACHE & DB CONFIG ---
-const CACHE_NAME = 'story-app-cache-v2'; 
-const DATA_CACHE_NAME = 'story-app-data-v2'; 
-const DB_NAME = 'StoryAppDB';
-const DB_VERSION = 1;
-const STORE_NAME = 'offline-stories';
-const API_BASE_URL = 'https://story-api.dicoding.dev/v1'; 
-const STORY_API_URL = `${API_BASE_URL}/stories`;
+// Konstanta base path untuk GitHub Pages
+const BASE_PATH = '/storyappMargohan'; 
 
 const urlsToCache = [
-  '/', 
-  '/index.html',
-  '/manifest.json', 
-  // Aset Dasar
-  './app.bundle.js', 
-  './styles.bundle.css', 
+  BASE_PATH + '/', 
+  BASE_PATH + '/index.html',
+  BASE_PATH + '/manifest.json',
+  
+  // Aset Dasar (Path harus menyertakan BASE_PATH)
+  BASE_PATH + '/app.bundle.js', 
+  BASE_PATH + '/styles.bundle.css', 
+  
   // Path icons
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
-  // Aset Leaflet
+  BASE_PATH + '/icons/icon-192.png',
+  BASE_PATH + '/icons/icon-512.png',
+  
+  // Aset Leaflet (URL eksternal tidak perlu diubah)
   'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
   'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
   'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
 ];
-
 // Install Service Worker
 self.addEventListener('install', (event) => {
   event.waitUntil(
